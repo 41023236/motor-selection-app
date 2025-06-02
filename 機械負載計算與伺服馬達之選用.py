@@ -9,14 +9,59 @@ st.header("Step 1.決定機械系統參數")
 col1, col2 = st.columns([1, 1])
 with col1:
     st.subheader("參數輸入區")
-    M = st.selectbox("負載質量 M (kg)", [1, 3, 5, 10], index=2)
-    p = st.selectbox("滾珠螺桿節距 p (mm)", [5, 10, 20], index=1)
-    D = st.selectbox("滾珠螺桿外徑 D (mm)", [10, 20, 25], index=1)
-    Mb = st.selectbox("滾珠螺桿慣性質量 Mb (kg)", [1, 2, 3, 5], index=2)
-    mu = st.selectbox("滾珠螺桿摩擦係數 μ", [0.05, 0.1, 0.15], index=1)
-    G = st.selectbox("減速比 G", [1, 2, 5, 10], index=0)
-    gamma = st.selectbox("無單位效率 γ", [0.8, 0.9, 1], index=2)
-    g = 9.8  # 重力加速度
+
+    # 負載質量 M
+    M_option = st.selectbox("負載質量 M (kg)", [1, 3, 5, 10, "自訂"], index=2)
+    if M_option == "自訂":
+        M = st.number_input("請輸入自訂的 M 值 (kg)", value=5.0, min_value=0.0)
+    else:
+        M = float(M_option)
+
+    # 滾珠螺桿節距 p
+    p_option = st.selectbox("滾珠螺桿節距 p (mm)", [5, 10, 20, "自訂"], index=1)
+    if p_option == "自訂":
+        p = st.number_input("請輸入自訂的 p 值 (mm)", value=10.0, min_value=0.1)
+    else:
+        p = float(p_option)
+
+    # 滾珠螺桿外徑 D
+    D_option = st.selectbox("滾珠螺桿外徑 D (mm)", [10, 20, 25, "自訂"], index=1)
+    if D_option == "自訂":
+        D = st.number_input("請輸入自訂的 D 值 (mm)", value=20.0, min_value=0.1)
+    else:
+        D = float(D_option)
+
+    # 滾珠螺桿慣性質量 Mb
+    Mb_option = st.selectbox("滾珠螺桿慣性質量 Mb (kg)", [1, 2, 3, 5, "自訂"], index=2)
+    if Mb_option == "自訂":
+        Mb = st.number_input("請輸入自訂的 Mb 值 (kg)", value=3.0, min_value=0.0)
+    else:
+        Mb = float(Mb_option)
+
+    # 滾珠螺桿摩擦係數 μ
+    mu_option = st.selectbox("滾珠螺桿摩擦係數 μ", [0.05, 0.1, 0.15, "自訂"], index=1)
+    if mu_option == "自訂":
+        mu = st.number_input("請輸入自訂的 μ 值", value=0.1, min_value=0.0)
+    else:
+        mu = float(mu_option)
+
+    # 減速比 G
+    G_option = st.selectbox("減速比 G", [1, 2, 5, 10, "自訂"], index=0)
+    if G_option == "自訂":
+        G = st.number_input("請輸入自訂的 G 值", value=1.0, min_value=0.01)
+    else:
+        G = float(G_option)
+
+    # 無單位效率 γ
+    gamma_option = st.selectbox("無單位效率 γ", [0.8, 0.9, 1, "自訂"], index=2)
+    if gamma_option == "自訂":
+        gamma = st.number_input("請輸入自訂的 γ 值", value=1.0, min_value=0.01, max_value=1.0)
+    else:
+        gamma = float(gamma_option)
+
+    # 重力加速度（固定）
+    g = 9.8
+
 with col2:
     st.subheader("流程圖示區")
     st.image("files/3.png", caption="決定機械系統")
