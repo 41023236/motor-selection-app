@@ -2,7 +2,7 @@ import streamlit as st
 import math
 
 st.set_page_config(page_title="馬達選型工具", layout="centered")
-st.title("馬達選型一頁式計算工具")
+st.title("馬達選用計算工具")
 
 # --- 步驟 1 ---
 st.header("Step 1.決定機械系統參數")
