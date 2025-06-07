@@ -10,7 +10,7 @@ col1, col2 = st.columns(2)
 with col1:
     Pe = st.number_input("輸入驅動功率 Pe (kW)", value=5.5)
     N = st.number_input("馬達轉速 N (rpm)", value=3000)
-    i = st.number_input("輪比 i (驅動輪/從動輪)", value=2.0)
+    i = st.number_input("速比 i (驅動輪/從動輪)", value=2.0)
     Nx = st.number_input("從動輪轉速 Nx (rpm)", value=1500)
 with col2:
     custom_hour = st.checkbox("自行輸入每日工作時間", value=False)
