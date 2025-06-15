@@ -50,7 +50,7 @@ with col3:
         else:
             belt_type = "8V"
 with col4:
-    D1 = st.number_input("預估小輪直徑 D1 (mm)", value=90)
+    D1 = st.number_input("預估大輪直徑 D1 (mm)", value=90)
     alpha = st.slider("包角 α (deg)", 90, 180, 170)
 
 # --- 修正係數計算與查表模擬 ---
